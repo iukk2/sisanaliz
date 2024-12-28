@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 def main(path):
@@ -11,7 +12,7 @@ def main(path):
     
     # r_1: отношение непосредственного управления
 
-    for i in range(1, number_of_nodes + 1): 
+    for i in range(1, number_of_nodes + 1):
         r_1 = 0
         for j in range(example_number_of_raws):
             if i == example[0][j]:
@@ -48,7 +49,7 @@ def main(path):
     #r_5: отношение соподчинения на одном уровне
     
     for i in range(1, number_of_nodes + 1):
-        # Для начала найдем узел которому подчиняется i. 
+        # Для начала найдем узел которому подчиняется i.
         boss = 0
         for j in range(example_number_of_raws):
             if i == example[1][j]:
@@ -57,5 +58,7 @@ def main(path):
             final["r_5"][i] = 0
         else:
             final["r_5"][i] = final["r_1"][boss] - 1
-    
-    final.to_csv("final.csv")
+            
+    final = np.array(final)
+    return final
+
