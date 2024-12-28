@@ -1,14 +1,6 @@
 import json
 import numpy as np
 
-with open("Функции принадлежности температуры.json") as temperature_functions:
-    temperature_functions = json.load(temperature_functions)
-
-with open("Функции принадлежности управления.json") as control_functions:
-    control_functions = json.load(control_functions)
-
-with open("Функции отображения.json") as logical_functions:
-    logical_functions = json.load(logical_functions)
 
 def main(temperature_functions, control_functions, logical_functions, t):
     
@@ -56,5 +48,3 @@ def main(temperature_functions, control_functions, logical_functions, t):
             #print(mu_opts)
             return 26 / (10000-1) * i
             break
-
-print(main(temperature_functions, control_functions, logical_functions, 20))
